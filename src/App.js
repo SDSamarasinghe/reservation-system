@@ -29,20 +29,19 @@ const App = () => {
     <BrowserRouter>
       {/* Navbar */}
       <Navbar />
-
       <Routes>
         {/* Train List */}
-        <Route exact path="/" element={<Trains />} />
+        <Route  path="/" element={<Trains />} />
 
-        <Route exact path="/login" element={<Login />} />
+        <Route  path="/login" element={<Login />} />
 
-        <Route exact path="/logout" element={<Logout />} />
+        <Route  path="/logout" element={<Logout />} />
 
-        <Route exact path="/signup" element={<Signup />} />
+        <Route  path="/signup" element={<Signup />} />
 
-        <Route exact path="/admin" element={<Admin />} />
+        <Route  path="/admin" element={<Admin />} />
 
-        <Route exact path="/profile" element={<Profile />} />
+        <Route  path="/profile" element={<Profile />} />
 
         <Route path="*" element={<NotFound />} /> Added a path
       </Routes>
