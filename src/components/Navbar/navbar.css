@@ -1,0 +1,29 @@
+.navbar {
+    background-color: black;
+    display: flex;
+    padding: 1em;
+    position: relative;
+  }
+  
+  #link {
+    color: white;
+    text-decoration: none;
+    margin-right: 1em;
+  }
+  
+  .lowerDesign {
+    border: 2px red solid;
+    background-color: red;
+  }
+  
+  #username {
+    color: white;
+    padding: 5px;
+    width: 4%;
+    position: absolute;
+    right: 5em;
+    top: 0;
+    bottom: 1%;
+    margin-bottom: 1%;
+  }
+  

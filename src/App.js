@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import Trains from "./components/Trains/Trains";
+import Login from "./components/User/Login";
+import Logout from "./components/User/Logout";
+import { useDispatch } from "react-redux";
+import { check } from "./actions/user";
+import Cookies from "js-cookie";
+import Profile from "./components/Profile/Profile";
+import Signup from "./components/User/Signup";
+import Admin from "./components/Admin/Admin";
+import NotFound from "./components/NotFound/NotFound";
 
-function App() {
+const App = () => {
+  const token = Cookies.get("token");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (token) {
+      dispatch(check());
+    } else {
+      console.log("You are not logged in");
+    }
+  }, [token, dispatch]); // Added dependencies to the array
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* Navbar */}
+      <Navbar />
+
+      <Routes>
+        {/* Train List */}
+        <Route exact path="/" element={<Trains />} />
+
+        <Route exact path="/login" element={<Login />} />
+
+        <Route exact path="/logout" element={<Logout />} />
+
+        <Route exact path="/signup" element={<Signup />} />
+
+        <Route exact path="/admin" element={<Admin />} />
+
+        <Route exact path="/profile" element={<Profile />} />
+
+        <Route path="*" element={<NotFound />} /> {/* Added a path */}
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
