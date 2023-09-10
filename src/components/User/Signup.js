@@ -78,7 +78,7 @@ export default () => {
         confirm: "",
       });
     } else {
-      console.log("passwords don't match");
+        window.alert("This is an alert message");
     }
   };
 
