@@ -44,7 +44,7 @@ const App = () => {
 
         <Route exact path="/profile" element={<Profile />} />
 
-        <Route path="*" element={<NotFound />} /> {/* Added a path */}
+        <Route path="*" element={<NotFound />} /> Added a path
       </Routes>
     </BrowserRouter>
   );
